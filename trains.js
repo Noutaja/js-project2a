@@ -30,7 +30,7 @@ function requestStation(station) {
 //checks which station was clicked on the map
 function mapClick(event) {
     const item = event.target;
-    if (item.innerText !== "") { //don't send a request if the station name is empty
+    if (item.innerText !== "" && item.innerText.length < 4) { //don't send a request if the station name is empty, or if the text is too long
         if (scheduleElement.children.length < 4) { //don't make a new schedule if 4 are already visible
             requestStation(item.innerText);
         }
